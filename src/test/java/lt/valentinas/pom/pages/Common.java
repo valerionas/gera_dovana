@@ -1,16 +1,16 @@
 package lt.valentinas.pom.pages;
 
 import lt.valentinas.pom.utils.Driver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Common {
     public static void setUpChrome() {
@@ -102,4 +102,108 @@ public class Common {
                 perform();
     }
 
+    public static boolean waitElementPresent(By locator, int seconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getChromeDriver(), Duration.ofSeconds(seconds));
+            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        } catch (TimeoutException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean waitElementPresentCustomised(By locator, int seconds) {
+        boolean isElementPresent = false;
+
+        for (int i = 0; i < 2 * seconds; i++) {
+            try {
+                Thread.sleep(500);
+                getElement(locator);
+                return true;
+            } catch (NoSuchElementException e) {
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return false;
+    }
+
+    public static Map<String, ?> getElementAttributes(By locator) {
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getChromeDriver();
+        Object result = executor.executeScript(
+                """
+                var items = {};
+                for (index = 0; index < arguments[0].attributes.length; ++index){
+                    items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value
+                };
+                return items;
+                """,
+                getElement(locator)
+        );
+
+        if (result instanceof HashMap newMap ){
+            return newMap;
+        }
+
+        return new HashMap<>();
+
+    }
+
+    public static boolean waitElementClickable(By locator, int seconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getChromeDriver(), Duration.ofSeconds(seconds));
+            wait.until(ExpectedConditions.elementToBeClickable(locator));
+        } catch (TimeoutException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean waitElementAttributeChange(By locator, int seconds, String attribute, String value) {
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getChromeDriver(), Duration.ofSeconds(seconds));
+            wait.until(ExpectedConditions.attributeContains(locator, attribute, value));
+        } catch (TimeoutException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static Alert getAlert() {
+        return Driver.getChromeDriver().switchTo().alert();
+    }
+
+    public static void acceptAlert() {
+        getAlert().accept();
+    }
+
+    public static void dismissAlert() {
+        getAlert().dismiss();
+    }
+
+    public static boolean waitAlertPresent(int seconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getChromeDriver(), Duration.ofSeconds(seconds));
+            wait.until(ExpectedConditions.alertIsPresent());
+        } catch (TimeoutException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void writeToAlert(String input) {
+
+        getAlert().sendKeys(input);
+    }
+
+    public static void hoverOverElement(By locator) {
+        Actions action = new Actions(Driver.getChromeDriver());
+        action.moveToElement(getElement(locator)).perform();
+    }
+
+    public static void loadPage(int waitSeconds) {
+        Driver.getChromeDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(waitSeconds));
+    }
 }
