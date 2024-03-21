@@ -33,8 +33,31 @@ public class LoginTest extends TestBase {
 
         boolean actualResult = HomePage.checkLoginStatus();
 
-        Assert.assertTrue(actualResult == expectedResult,
+        Assert.assertEquals(actualResult, expectedResult,
                 "\nExpected: %s,\nActual: %s\n".formatted(expectedResult, actualResult)
         );
     }
+
+    @Test
+    public void testLogin_ProvidedIncorrectInput() {
+        boolean expectedResult = true;
+
+        String email = "valiuspus@gmail.com";
+        String password = "neteisingas_slaptazodis";
+
+        HomePage.hoverOverProfileDropdownMenu();
+        HomePage.clickPrisijungti();
+
+        LoginPage.writeEmail(email);
+        LoginPage.writePassword(password);
+        LoginPage.clickButtonLogin();
+
+        boolean actualResult = LoginPage.checkForErrorMessage();
+
+        Assert.assertEquals(actualResult, expectedResult,
+                "\nExpected: %s,\nActual: %s\n".formatted(expectedResult, actualResult)
+        );
+    }
+
+
 }

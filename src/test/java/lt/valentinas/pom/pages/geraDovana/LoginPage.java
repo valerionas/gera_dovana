@@ -15,4 +15,8 @@ public class LoginPage {
     public static void clickButtonLogin() {
         Common.clickOnElement(Locators.GeraDovana.Login.buttonLogin);
     }
+
+    public static boolean checkForErrorMessage() {
+        return Common.waitElementPresent(Locators.GeraDovana.Login.paragraphBadAlert,2);
+    }
 }

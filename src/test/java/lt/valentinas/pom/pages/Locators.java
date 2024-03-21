@@ -20,6 +20,7 @@ public class Locators {
             public static By textBoxEmail = By.xpath("//input[@id='email']");
             public static By textBoxPassword = By.xpath("//input[@id='password']");
             public static By buttonLogin = By.xpath("//button[@class='loginbtn']");
+            public static By paragraphBadAlert = By.xpath("//p[@class='alert badalert']");
         }
     }
 }
