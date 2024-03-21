@@ -5,6 +5,7 @@ import lt.valentinas.pom.pages.geraDovana.LoginPage;
 import lt.valentinas.pom.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTest extends TestBase {
@@ -17,12 +18,17 @@ public class LoginTest extends TestBase {
         HomePage.closePopUpWindow();
     }
 
-    @Test
-    public void testLogin_ProvidedCorrectInput() {
-        boolean expectedResult = true;
+    @DataProvider(name = "dataProviderLoginCorrectInput")
+    public Object[][] dataProviderForLoginCorrectInput() {
+        return new Object[][]{
+                {"valiuspus@gmail.com", "slaptazodis123"},
+                {"valiuspu@gmail.com", "123slaptazodis"}
+        };
+    }
 
-        String email = "valiuspus@gmail.com";
-        String password = "slaptazodis123";
+    @Test(dataProvider = "dataProviderLoginCorrectInput")
+    public void testLogin_ProvidedCorrectInput(String email, String password) {
+        boolean expectedResult = true;
 
         HomePage.hoverOverProfileDropdownMenu();
         HomePage.clickPrisijungti();
@@ -38,12 +44,18 @@ public class LoginTest extends TestBase {
         );
     }
 
-    @Test
-    public void testLogin_ProvidedIncorrectInput() {
-        boolean expectedResult = true;
+    @DataProvider(name = "dataProviderLoginIncorrectInput")
+    public Object[][] dataProviderForLoginIncorrectInput() {
+        return new Object[][]{
+                {"valiuspus@gmail.com", "neteisingas_slaptazodis"},
+                {"nevalidus_el_pastas.lt", "slaptazodis123"},
+                {"valiuspu@gmail.com", ""}
+        };
+    }
 
-        String email = "valiuspus@gmail.com";
-        String password = "neteisingas_slaptazodis";
+    @Test(dataProvider = "dataProviderLoginIncorrectInput")
+    public void testLogin_ProvidedIncorrectInput(String email, String password) {
+        boolean expectedResult = true;
 
         HomePage.hoverOverProfileDropdownMenu();
         HomePage.clickPrisijungti();
