@@ -10,7 +10,7 @@ public class HomePage {
     }
 
     public static void closePopUpWindow() {
-        if (Common.waitElementPresent(Locators.GeraDovana.Home.buttonCloseOmniSendForm, 7)) {
+        if (Common.waitElementPresent(Locators.GeraDovana.Home.buttonCloseOmniSendForm, 10)) {
             Common.clickOnElement(Locators.GeraDovana.Home.buttonCloseOmniSendForm);
         }
     }
@@ -30,5 +30,13 @@ public class HomePage {
 
     public static boolean checkLoginStatus() {
         return Common.waitElementPresent(Locators.GeraDovana.Home.buttonHeaderProfile, 2);
+    }
+
+    public static void writeToSearchBar(String input) {
+        Common.sendKeysToElement(Locators.GeraDovana.Home.textBoxSearch, input);
+    }
+
+    public static void clickSearchIconButton() {
+        Common.clickOnElement(Locators.GeraDovana.Home.buttonSearchIcon);
     }
 }

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Common {
     public static void setUpChrome() {
@@ -134,16 +136,16 @@ public class Common {
         JavascriptExecutor executor = (JavascriptExecutor) Driver.getChromeDriver();
         Object result = executor.executeScript(
                 """
-                var items = {};
-                for (index = 0; index < arguments[0].attributes.length; ++index){
-                    items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value
-                };
-                return items;
-                """,
+                        var items = {};
+                        for (index = 0; index < arguments[0].attributes.length; ++index){
+                            items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value
+                        };
+                        return items;
+                        """,
                 getElement(locator)
         );
 
-        if (result instanceof HashMap newMap ){
+        if (result instanceof HashMap newMap) {
             return newMap;
         }
 
@@ -206,4 +208,45 @@ public class Common {
     public static void loadPage(int waitSeconds) {
         Driver.getChromeDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(waitSeconds));
     }
+
+    public static List<Double> getAllCardsPrices(By locator) {
+
+        List<Double> listOfPrices = new ArrayList<>();
+        Pattern decimalNumPattern = Pattern.compile("\\d+.\\d+");
+        Matcher matcher;
+        String priceString;
+        String match = null;
+
+        for (WebElement element : getElements(locator)) {
+            priceString = element.getText();
+            matcher = decimalNumPattern.matcher(priceString);
+            while (matcher.find()) {
+                match = matcher.group();
+            }
+            listOfPrices.add(Double.parseDouble(match.replaceAll(",", ".")));
+        }
+        return listOfPrices;
+    }
+
+    public static List<String> getAllCardsTitles(By locator) {
+        String text;
+        List<String> listOfTitles = new ArrayList<>();
+
+        for (WebElement element : getElements(locator)) {
+            text = element.getText().toLowerCase();
+            text = text.replaceAll("ą", "a");
+            text = text.replaceAll("č", "c");
+            text = text.replaceAll("ę", "e");
+            text = text.replaceAll("ė", "e");
+            text = text.replaceAll("į", "i");
+            text = text.replaceAll("š", "s");
+            text = text.replaceAll("ų", "u");
+            text = text.replaceAll("ū", "u");
+            text = text.replaceAll("ž", "z");
+
+            listOfTitles.add(text);
+        }
+        return listOfTitles;
+    }
+
 }
