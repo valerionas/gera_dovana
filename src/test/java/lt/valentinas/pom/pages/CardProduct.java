@@ -9,11 +9,6 @@ public class CardProduct<Title, Price> {
         this.price = price;
     }
 
-    public CardProduct() {
-        this.title = null;
-        this.price = null;
-    }
-
     public Title getTitle() {
         return title;
     }

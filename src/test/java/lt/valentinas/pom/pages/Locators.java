@@ -30,6 +30,8 @@ public class Locators {
             public static By cardProductPrices = By.xpath(
                     "//span[@class='card--product__price-current card--product__price-current--discount']"
             );
+            public static By textBoxMinPrice = By.xpath("//input[@id='min-price']");
+            public static By textBoxMaxPrice = By.xpath("//input[@id='max-price']");
         }
     }
 }

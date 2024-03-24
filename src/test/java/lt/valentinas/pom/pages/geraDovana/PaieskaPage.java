@@ -10,18 +10,25 @@ import java.util.List;
 public class PaieskaPage {
     public static List<CardProduct<String, Double>> getAllFilteredCardsInAPage() {
         List<CardProduct<String, Double>> cardProducts = new ArrayList<>();
-        CardProduct<String, Double> cardProduct = new CardProduct<>();
 
         List<Double> listPrices = Common.getAllCardsPrices(Locators.GeraDovana.Paieska.cardProductPrices);
         List<String> listTitles = Common.getAllCardsTitles(Locators.GeraDovana.Paieska.cardProductTitles);
 
         if (listPrices.size() == listTitles.size()) {
             for (int i = 0; i < listTitles.size(); i++) {
-                cardProduct.setTitle(listTitles.get(i));
-                cardProduct.setPrice(listPrices.get(i));
+
+                CardProduct<String, Double> cardProduct = new CardProduct<>(listTitles.get(i),listPrices.get(i));//papasakoti, kaip instance buvai pries cikla pasidares ir del to listas nukentejo
                 cardProducts.add(cardProduct);
             }
         }
         return cardProducts;
+    }
+
+    public static Double getMinimumPrice() {
+        return Double.parseDouble(Common.getAttributeValueOfAnElement(Locators.GeraDovana.Paieska.textBoxMinPrice));
+    }
+
+    public static Double getMaximumPrice() {
+        return Double.parseDouble(Common.getAttributeValueOfAnElement(Locators.GeraDovana.Paieska.textBoxMaxPrice));
     }
 }

@@ -35,13 +35,16 @@ public class SearchTest extends TestBase {
             String expectedResult2,
             String expectedResult3,
             String expectedResult4) {
-        String cardTitle;
+
         HomePage.writeToSearchBar(input);
         HomePage.clickSearchIconButton();
 
         List<CardProduct<String, Double>> cardsOfProducts;
         cardsOfProducts = PaieskaPage.getAllFilteredCardsInAPage();
 
+        System.out.println(cardsOfProducts);
+
+        String cardTitle;
 
         for (CardProduct<String, Double> card : cardsOfProducts) {
             cardTitle = card.getTitle();
@@ -60,4 +63,42 @@ public class SearchTest extends TestBase {
             );
         }
     }
+
+    @DataProvider(name = "dataProviderPriceSearchService")
+    public Object[][] dataProviderForPricesSearchService() {
+        return new Object[][]{
+                {"jodinejimas"}
+        };
+    }
+
+    @Test(dataProvider = "dataProviderPriceSearchService")
+    public void testPricesOfSearchService(String input) {
+        Double minPrice;
+        Double maxPrice;
+
+        HomePage.writeToSearchBar(input);
+        HomePage.clickSearchIconButton();
+
+        minPrice = PaieskaPage.getMinimumPrice();//paklausti del pavadinimo
+        maxPrice = PaieskaPage.getMaximumPrice();
+
+        List<CardProduct<String, Double>> cardsOfProducts;
+        cardsOfProducts = PaieskaPage.getAllFilteredCardsInAPage();
+
+        Double cardPrice;
+
+        for (CardProduct<String, Double> card : cardsOfProducts) {
+            cardPrice = card.getPrice();
+            Assert.assertTrue(
+                    cardPrice >= minPrice && cardPrice <= maxPrice,
+                    "One or more of the prices did not satisfy the filtering interval.\nCard: \"" +
+                            card.getTitle() + "\" Price is: %s, which is not between %s and %s".formatted(
+                            cardPrice,
+                            minPrice,
+                            maxPrice
+                    )
+            );
+        }
+    }
+
 }

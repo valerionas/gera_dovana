@@ -249,4 +249,7 @@ public class Common {
         return listOfTitles;
     }
 
+    public static String getAttributeValueOfAnElement(By locator) {
+        return getElement(locator).getAttribute("value");
+    }
 }
