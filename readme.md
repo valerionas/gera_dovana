@@ -34,3 +34,9 @@
 5. Click and drag price selection element  
    **Expected result:** Get at least *six* entries where title includes search phrase (and price is appropriate)
 
+### Sources:
+ - https://stackoverflow.com/questions/4777622/creating-a-list-of-pairs-in-java
+ - https://stackoverflow.com/questions/156275/what-is-the-equivalent-of-the-c-pairl-r-in-java?noredirect=1&lq=1
+ - https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html#:~:text=To%20match%20a%20character%20having,%22%20(back%2Dslash).
+ - https://regexone.com/
+ - https://www.baeldung.com/java-find-numbers-in-string
