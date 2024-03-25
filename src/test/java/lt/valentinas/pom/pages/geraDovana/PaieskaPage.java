@@ -16,8 +16,7 @@ public class PaieskaPage {
 
         if (listPrices.size() == listTitles.size()) {
             for (int i = 0; i < listTitles.size(); i++) {
-
-                CardProduct<String, Double> cardProduct = new CardProduct<>(listTitles.get(i),listPrices.get(i));//papasakoti, kaip instance buvai pries cikla pasidares ir del to listas nukentejo
+                CardProduct<String, Double> cardProduct = new CardProduct<>(listTitles.get(i), listPrices.get(i));
                 cardProducts.add(cardProduct);
             }
         }

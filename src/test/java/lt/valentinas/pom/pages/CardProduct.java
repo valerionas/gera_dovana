@@ -17,14 +17,6 @@ public class CardProduct<T, U> {
         return price;
     }
 
-    public void setTitle(T title) {
-        this.title = title;
-    }
-
-    public void setPrice(U price) {
-        this.price = price;
-    }
-
     @Override
     public String toString() {
         return "Title: \"" + this.title + "\" Price: " + this.price.toString() + " eur";

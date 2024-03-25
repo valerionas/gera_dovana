@@ -3,12 +3,13 @@
 ## Test scenarios:
 
 1. Login
-2. Services Search
+2. Search and filtering feature
 3. Add to Cart
 
 ## Login
 
-**With correct input:**
+**With correct input:**  
+**testLogin_ProvidedCorrectInput()**
 
 1. Open home page
 2. Accept cookies, close popup windows
@@ -19,7 +20,8 @@
 7. Press button "Prisijungti"  
    **Expected result:** We navigate to homepage and in top right corner instead of "Prisijungti" we see "Profilis".
 
-**With incorrect input:**
+**With incorrect input:**  
+**testLogin_ProvidedIncorrectInput()**
 
 1. Open home page
 2. Accept cookies, close popup windows
@@ -30,7 +32,7 @@
 7. Press button "Prisijungti"  
    **Expected result:** Error message appears.
 
-## Services search and filtering
+## Search and filtering feature
 
 **Search phrase and price filtering**
 

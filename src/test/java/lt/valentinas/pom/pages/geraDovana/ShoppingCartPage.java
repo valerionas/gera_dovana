@@ -2,6 +2,7 @@ package lt.valentinas.pom.pages.geraDovana;
 
 import lt.valentinas.pom.pages.Common;
 import lt.valentinas.pom.pages.Locators;
+import lt.valentinas.pom.utils.Utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -16,7 +17,7 @@ public class ShoppingCartPage {
     }
 
     public static Double calculateActualTotalPrice() {
-        Map<String, ?> attributes = new HashMap<>();
+        Map<String, ?> attributes;
         Double sumPrices = 0.0;
 
         attributes = Common.getElementAttributes(Locators.GeraDovana.ShoppingCart.divFirstCartItem);
@@ -29,14 +30,6 @@ public class ShoppingCartPage {
 
     public static Double readShownPrice() {
         String string = Common.getTextFromElement(Locators.GeraDovana.ShoppingCart.divTotalPrice);
-
-        Pattern pattern = Pattern.compile("\\d+.\\d+");
-        Matcher matcher = pattern.matcher(string);
-        if (matcher.find())
-        {
-            return  Double.parseDouble(matcher.group().replaceAll(",","."));
-        }
-
-        return null;
+        return Utils.parseNumberFromString(string);
     }
 }

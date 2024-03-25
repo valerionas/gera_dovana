@@ -42,10 +42,10 @@ public class AddToCartTest extends TestBase {
         Double productsPriceSum = ShoppingCartPage.calculateActualTotalPrice();
         Double shownPrice = ShoppingCartPage.readShownPrice();
 
-        Assert.assertEquals(productCount,2,
+        Assert.assertEquals(productCount, 2,
                 "Turejome rasti 2 produktus sarase, radome: " + productCount);
 
-        Assert.assertEquals(productsPriceSum,shownPrice,
-                "Parodyta kaina (%s) nesutampa su paskaiciuota kaina (%s)".formatted(shownPrice,productsPriceSum));
+        Assert.assertEquals(productsPriceSum, shownPrice,
+                "Parodyta kaina (%s) nesutampa su paskaiciuota kaina (%s)".formatted(shownPrice, productsPriceSum));
     }
 }

@@ -24,7 +24,7 @@ public class SearchTest extends TestBase {
     public Object[][] dataProviderForTitleSearchService() {
         return new Object[][]{
                 {"jodinejimas", "jodinejim", "jojim", "zirg", "raitom"},
-                //{"skrydis", "skrydis"}
+                {"skrydis", "skrydis"}
         };
     }
 
@@ -41,8 +41,6 @@ public class SearchTest extends TestBase {
 
         List<CardProduct<String, Double>> cardsOfProducts;
         cardsOfProducts = PaieskaPage.getAllFilteredCardsInAPage();
-
-        System.out.println(cardsOfProducts);
 
         String cardTitle;
 
@@ -67,7 +65,8 @@ public class SearchTest extends TestBase {
     @DataProvider(name = "dataProviderPriceSearchService")
     public Object[][] dataProviderForPricesSearchService() {
         return new Object[][]{
-                {"jodinejimas"}
+                {"jodinejimas"},
+                {"skrydis"}
         };
     }
 

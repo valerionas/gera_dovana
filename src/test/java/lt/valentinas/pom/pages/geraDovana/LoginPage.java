@@ -18,6 +18,6 @@ public class LoginPage {
     }
 
     public static boolean checkForErrorMessage() {
-        return Common.waitElementPresent(Locators.GeraDovana.Login.paragraphBadAlert,2);
+        return Common.waitElementPresent(Locators.GeraDovana.Login.paragraphBadAlert, 2);
     }
 }

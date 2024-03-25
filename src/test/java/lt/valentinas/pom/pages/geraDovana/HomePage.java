@@ -9,14 +9,14 @@ public class HomePage {
         Common.openUrl(url);
     }
 
-    public static void closePopUpWindow() {
-        if (Common.waitElementPresent(Locators.GeraDovana.Home.buttonCloseOmniSendForm, 10)) {
-            Common.clickOnElement(Locators.GeraDovana.Home.buttonCloseOmniSendForm);
-        }
+    public static void clickAcceptCookies() {
+        Common.waitElementPresent(Locators.GeraDovana.Home.buttonCookiesAcceptAll, 10);
+        Common.clickOnElement(Locators.GeraDovana.Home.buttonCookiesAcceptAll);
     }
 
-    public static void clickAcceptCookies() {
-        Common.clickOnElement(Locators.GeraDovana.Home.buttonCookiesAcceptAll);
+    public static void closePopUpWindow() {
+        Common.waitElementPresent(Locators.GeraDovana.Home.buttonCloseOmniSendForm, 10);
+        Common.clickOnElement(Locators.GeraDovana.Home.buttonCloseOmniSendForm);
     }
 
     public static void clickPrisijungti() {
