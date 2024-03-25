@@ -11,8 +11,8 @@ public class PaieskaPage {
     public static List<CardProduct<String, Double>> getAllFilteredCardsInAPage() {
         List<CardProduct<String, Double>> cardProducts = new ArrayList<>();
 
-        List<Double> listPrices = Common.getAllCardsPrices(Locators.GeraDovana.Paieska.cardProductPrices);
-        List<String> listTitles = Common.getAllCardsTitles(Locators.GeraDovana.Paieska.cardProductTitles);
+        List<Double> listPrices = Common.getAllCardsPrices(Locators.GeraDovana.Paieska.spansCardProductPrices);
+        List<String> listTitles = Common.getAllCardsTitles(Locators.GeraDovana.Paieska.paragraphsCardProductTitles);
 
         if (listPrices.size() == listTitles.size()) {
             for (int i = 0; i < listTitles.size(); i++) {
@@ -30,5 +30,13 @@ public class PaieskaPage {
 
     public static Double getMaximumPrice() {
         return Double.parseDouble(Common.getAttributeValueOfAnElement(Locators.GeraDovana.Paieska.textBoxMaxPrice));
+    }
+
+    public static void clickOnFirstCard() {
+        Common.clickOnElement(Locators.GeraDovana.Paieska.linkFirstCardProduct);
+    }
+
+    public static void clickOnSecondCard() {
+        Common.clickOnElement(Locators.GeraDovana.Paieska.linkSecondCardProduct);
     }
 }

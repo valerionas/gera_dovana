@@ -8,11 +8,9 @@ public class Locators {
             public static By buttonCookiesAcceptAll = By.xpath("//button[@class='cookies-accept-all']");
             public static By hyperlinkPrisijungti = By.xpath("(//a[contains(text(),' Prisijungti')])[1]");
             public static By buttonCloseOmniSendForm = By.xpath(
-                    "//div[contains(@id,'close-button') and contains(@class, 'close-button')]"
-            );
+                    "//div[contains(@id,'close-button') and contains(@class, 'close-button')]");
             public static By dropdownListProfile = By.xpath(
-                    "//div[@class='dropdown dropdown--backdrop dropdown--profile']"
-            );
+                    "//div[@class='dropdown dropdown--backdrop dropdown--profile']");
             public static By buttonHeaderProfile = By.xpath("//span[text() = 'Profilis']");
             public static By textBoxSearch = By.xpath("//input[@id='filterKeyword']");
             public static By buttonSearchIcon = By.xpath("(//button[@type='submit'])[1]");
@@ -26,12 +24,33 @@ public class Locators {
         }
 
         public class Paieska {
-            public static By cardProductTitles = By.xpath("//p[@class='card--product__heading']");
-            public static By cardProductPrices = By.xpath(
+            public static By paragraphsCardProductTitles = By.xpath(
+                    "//p[@class='card--product__heading']");
+            public static By spansCardProductPrices = By.xpath(
                     "//span[@class='card--product__price-current card--product__price-current--discount']"
             );
             public static By textBoxMinPrice = By.xpath("//input[@id='min-price']");
             public static By textBoxMaxPrice = By.xpath("//input[@id='max-price']");
+            public static By linkFirstCardProduct = By.xpath(
+                    "(//div[@class='card card--product card--product--hoverable']/a)[1]");
+            public static By linkSecondCardProduct = By.xpath(
+                    "(//div[@class='card card--product card--product--hoverable']/a)[21]");
+        }
+
+        public class Product {
+            public static By buttonAddToCart = By.xpath("(//a[@class='prodbuybtn '])[3]");
+        }
+
+        public class ShoppingCart {
+            public static By textCartItems = By.xpath(
+                    "//div[@class='cart-items-block']//div[@class='heading']");
+            public static By divFirstCartItem = By.xpath(
+                    "(//div[@class='cart-item cart-item-active gift'])[1]");
+            public static By divSecondCartItem = By.xpath(
+                    "(//div[@class='cart-item cart-item-active gift'])[2]");
+
+            public static By divTotalPrice = By.xpath(
+                    "//div[@class='sum-total']/div[@class='total-price-1']");
         }
     }
 }

@@ -1,27 +1,27 @@
 package lt.valentinas.pom.pages;
 
-public class CardProduct<Title, Price> {
-    private Title title;
-    private Price price;
+public class CardProduct<T, U> {
+    private T title;
+    private U price;
 
-    public CardProduct(Title title, Price price) {
+    public CardProduct(T title, U price) {
         this.title = title;
         this.price = price;
     }
 
-    public Title getTitle() {
+    public T getTitle() {
         return title;
     }
 
-    public Price getPrice() {
+    public U getPrice() {
         return price;
     }
 
-    public void setTitle(Title title) {
+    public void setTitle(T title) {
         this.title = title;
     }
 
-    public void setPrice(Price price) {
+    public void setPrice(U price) {
         this.price = price;
     }
 

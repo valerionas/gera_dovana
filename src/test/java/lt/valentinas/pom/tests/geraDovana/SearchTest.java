@@ -79,7 +79,7 @@ public class SearchTest extends TestBase {
         HomePage.writeToSearchBar(input);
         HomePage.clickSearchIconButton();
 
-        minPrice = PaieskaPage.getMinimumPrice();//paklausti del pavadinimo
+        minPrice = PaieskaPage.getMinimumPrice();
         maxPrice = PaieskaPage.getMaximumPrice();
 
         List<CardProduct<String, Double>> cardsOfProducts;

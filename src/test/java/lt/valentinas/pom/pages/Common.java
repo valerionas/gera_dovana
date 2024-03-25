@@ -24,12 +24,20 @@ public class Common {
         Driver.getChromeDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(waitSeconds));
     }
 
+    public static void waitPageLoaded(int waitSeconds){
+        Driver.getChromeDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(waitSeconds));
+    }
+
     public static void openUrl(String url) {
         Driver.getChromeDriver().get(url);
     }
 
     public static void quitChromeDriver() {
         Driver.quitChromeDriver();
+    }
+
+    public static void goBack() {
+        Driver.getChromeDriver().navigate().back();
     }
 
     private static WebElement getElement(By locator) {
@@ -150,7 +158,6 @@ public class Common {
         }
 
         return new HashMap<>();
-
     }
 
     public static boolean waitElementClickable(By locator, int seconds) {
@@ -211,6 +218,7 @@ public class Common {
 
     public static List<Double> getAllCardsPrices(By locator) {
 
+        //
         List<Double> listOfPrices = new ArrayList<>();
         Pattern decimalNumPattern = Pattern.compile("\\d+.\\d+");
         Matcher matcher;
@@ -251,5 +259,9 @@ public class Common {
 
     public static String getAttributeValueOfAnElement(By locator) {
         return getElement(locator).getAttribute("value");
+    }
+
+    public static int countElements(By locator) {
+        return getElements(locator).size();
     }
 }
