@@ -21,7 +21,7 @@ public class HomePage {
 
     public static void clickPrisijungti() {
         Common.clickOnElement(Locators.GeraDovana.Home.hyperlinkPrisijungti);
-        Common.loadPage(7);
+        Common.waitPageLoaded(7);
     }
 
     public static void hoverOverProfileDropdownMenu() {
@@ -38,5 +38,6 @@ public class HomePage {
 
     public static void clickSearchIconButton() {
         Common.clickOnElement(Locators.GeraDovana.Home.buttonSearchIcon);
+        Common.waitPageLoaded(7);
     }
 }

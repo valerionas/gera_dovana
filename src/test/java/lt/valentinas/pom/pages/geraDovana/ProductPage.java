@@ -7,5 +7,6 @@ public class ProductPage {
 
     public static void clickOnAddToCart() {
         Common.clickOnElement(Locators.GeraDovana.Product.buttonAddToCart);
+        Common.waitPageLoaded(7);
     }
 }

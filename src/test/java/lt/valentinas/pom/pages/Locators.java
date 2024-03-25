@@ -33,7 +33,7 @@ public class Locators {
             public static By textBoxMaxPrice = By.xpath("//input[@id='max-price']");
             public static By linkFirstCardProduct = By.xpath(
                     "(//div[@class='card card--product card--product--hoverable']/a)[1]");
-            public static By linkSecondCardProduct = By.xpath(
+            public static By linkTwentyFirstCardProduct = By.xpath(
                     "(//div[@class='card card--product card--product--hoverable']/a)[21]");
         }
 

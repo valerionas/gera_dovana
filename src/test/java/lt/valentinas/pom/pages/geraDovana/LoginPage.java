@@ -14,6 +14,7 @@ public class LoginPage {
 
     public static void clickButtonLogin() {
         Common.clickOnElement(Locators.GeraDovana.Login.buttonLogin);
+        Common.waitPageLoaded(7);
     }
 
     public static boolean checkForErrorMessage() {

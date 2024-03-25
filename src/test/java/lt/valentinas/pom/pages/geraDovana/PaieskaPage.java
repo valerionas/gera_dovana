@@ -34,9 +34,11 @@ public class PaieskaPage {
 
     public static void clickOnFirstCard() {
         Common.clickOnElement(Locators.GeraDovana.Paieska.linkFirstCardProduct);
+        Common.waitPageLoaded(7);
     }
 
     public static void clickOnSecondCard() {
-        Common.clickOnElement(Locators.GeraDovana.Paieska.linkSecondCardProduct);
+        Common.clickOnElement(Locators.GeraDovana.Paieska.linkTwentyFirstCardProduct);
+        Common.waitPageLoaded(7);
     }
 }

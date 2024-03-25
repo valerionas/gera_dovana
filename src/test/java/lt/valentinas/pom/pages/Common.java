@@ -38,6 +38,7 @@ public class Common {
 
     public static void goBack() {
         Driver.getChromeDriver().navigate().back();
+        waitPageLoaded(7);
     }
 
     private static WebElement getElement(By locator) {
@@ -210,10 +211,6 @@ public class Common {
     public static void hoverOverElement(By locator) {
         Actions action = new Actions(Driver.getChromeDriver());
         action.moveToElement(getElement(locator)).perform();
-    }
-
-    public static void loadPage(int waitSeconds) {
-        Driver.getChromeDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(waitSeconds));
     }
 
     public static List<Double> getAllCardsPrices(By locator) {
