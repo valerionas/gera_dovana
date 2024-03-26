@@ -18,7 +18,7 @@ public class LoginTest extends TestBase {
         HomePage.closePopUpWindow();
     }
 
-    @DataProvider(name = "dataProviderLoginCorrectInput")
+    @DataProvider(name = "dataProviderLoginCorrectInput", parallel = true)
     public Object[][] dataProviderForLoginCorrectInput() {
         return new Object[][]{
                 {"valiuspus@gmail.com", "slaptazodis123"},
@@ -26,7 +26,7 @@ public class LoginTest extends TestBase {
         };
     }
 
-    @Test(dataProvider = "dataProviderLoginCorrectInput")
+    @Test(dataProvider = "dataProviderLoginCorrectInput", threadPoolSize = 2)
     public void testLogin_ProvidedCorrectInput(String email, String password) {
         boolean expectedResult = true;
 
@@ -44,7 +44,7 @@ public class LoginTest extends TestBase {
         );
     }
 
-    @DataProvider(name = "dataProviderLoginIncorrectInput")
+    @DataProvider(name = "dataProviderLoginIncorrectInput", parallel = true)
     public Object[][] dataProviderForLoginIncorrectInput() {
         return new Object[][]{
                 {"valiuspus@gmail.com", "neteisingas_slaptazodis"},
@@ -53,7 +53,7 @@ public class LoginTest extends TestBase {
         };
     }
 
-    @Test(dataProvider = "dataProviderLoginIncorrectInput")
+    @Test(dataProvider = "dataProviderLoginIncorrectInput", threadPoolSize = 3)
     public void testLogin_ProvidedIncorrectInput(String email, String password) {
         boolean expectedResult = true;
 

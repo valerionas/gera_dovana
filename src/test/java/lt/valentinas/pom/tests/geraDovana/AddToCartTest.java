@@ -20,7 +20,7 @@ public class AddToCartTest extends TestBase {
         HomePage.closePopUpWindow();
     }
 
-    @DataProvider(name = "dataProviderAddToCart")
+    @DataProvider(name = "dataProviderAddToCart", parallel = true)
     public Object[][] dataProviderForTestAddToCart() {
         return new Object[][]{
                 {"jodinejimas"},
@@ -28,7 +28,7 @@ public class AddToCartTest extends TestBase {
         };
     }
 
-    @Test(dataProvider = "dataProviderAddToCart")
+    @Test(dataProvider = "dataProviderAddToCart", threadPoolSize = 2)
     public void testAddToCart(String input) {
         HomePage.writeToSearchBar(input);
         HomePage.clickSearchIconButton();

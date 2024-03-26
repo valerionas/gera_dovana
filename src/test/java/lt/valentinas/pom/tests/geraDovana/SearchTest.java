@@ -20,7 +20,7 @@ public class SearchTest extends TestBase {
         HomePage.closePopUpWindow();
     }
 
-    @DataProvider(name = "dataProviderTitleSearchService")
+    @DataProvider(name = "dataProviderTitleSearchService", parallel = true)
     public Object[][] dataProviderForTitleSearchService() {
         return new Object[][]{
                 {"jodinejimas", "jodinejim", "jojim", "zirg", "raitom"},
@@ -28,7 +28,7 @@ public class SearchTest extends TestBase {
         };
     }
 
-    @Test(dataProvider = "dataProviderTitleSearchService")
+    @Test(dataProvider = "dataProviderTitleSearchService", threadPoolSize = 3)
     public void testTitlesOfSearchService(
             String input,
             String expectedResult1,
@@ -62,7 +62,7 @@ public class SearchTest extends TestBase {
         }
     }
 
-    @DataProvider(name = "dataProviderPriceSearchService")
+    @DataProvider(name = "dataProviderPriceSearchService", parallel = true)
     public Object[][] dataProviderForPricesSearchService() {
         return new Object[][]{
                 {"jodinejimas"},
@@ -70,7 +70,7 @@ public class SearchTest extends TestBase {
         };
     }
 
-    @Test(dataProvider = "dataProviderPriceSearchService")
+    @Test(dataProvider = "dataProviderPriceSearchService", threadPoolSize = 2)
     public void testPricesOfSearchService(String input) {
         Double minPrice;
         Double maxPrice;
