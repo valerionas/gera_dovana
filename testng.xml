@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Baigiamasis_Valentino" parallel="methods" thread-count="4">
+    <test name="geraDovana">
+        <classes>
+            <class name="lt.valentinas.pom.tests.geraDovana.LoginTest"/>
+            <class name="lt.valentinas.pom.tests.geraDovana.SearchTest"/>
+            <class name="lt.valentinas.pom.tests.geraDovana.AddToCartTest"/>
+        </classes>
+    </test>
+</suite>
