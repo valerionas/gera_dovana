@@ -35,6 +35,8 @@ public class Locators {
                     "(//div[@class='card card--product card--product--hoverable']/a)[1]");
             public static By linkTwentyFirstCardProduct = By.xpath(
                     "(//div[@class='card card--product card--product--hoverable']/a)[21]");
+            public static By nodeOfPriceSelectorFirst = By.xpath("(//div[@class='noUi-touch-area'])[1]");
+            public static By nodeOfPriceSelectorSecond = By.xpath("(//div[@class='noUi-touch-area'])[2]");
         }
 
         public class Product {

@@ -40,7 +40,7 @@
 2. Accept cookies, close popup windows
 3. Input text to search bar
 4. Click on search icon  
-5. Get entries
+5. Get entries  
    **Expected result:** All entries include search phrase or a synonym in the title (and price is appropriate)
 
 ~~**Price selector component filtering**~~

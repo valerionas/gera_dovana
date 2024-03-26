@@ -40,4 +40,14 @@ public class PaieskaPage {
         Common.clickOnElement(Locators.GeraDovana.Paieska.linkTwentyFirstCardProduct);
         Common.waitPageLoaded(7);
     }
+
+    public static void dragFirstPriceFilterNodeRight(int offset) {
+        Common.dragElementHorizontal(Locators.GeraDovana.Paieska.nodeOfPriceSelectorFirst,offset);
+        Common.waitExplicit(3);
+    }
+
+    public static void dragSecondPriceFilterNodeLeft(int offset) {
+        Common.dragElementHorizontal(Locators.GeraDovana.Paieska.nodeOfPriceSelectorSecond,-offset);
+        Common.waitExplicit(3);
+    }
 }

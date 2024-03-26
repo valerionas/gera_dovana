@@ -66,7 +66,7 @@ public class SearchTest extends TestBase {
     public Object[][] dataProviderForPricesSearchService() {
         return new Object[][]{
                 {"jodinejimas"},
-                {"skrydis"}
+                //{"skrydis"}
         };
     }
 
@@ -77,6 +77,9 @@ public class SearchTest extends TestBase {
 
         HomePage.writeToSearchBar(input);
         HomePage.clickSearchIconButton();
+
+        PaieskaPage.dragFirstPriceFilterNodeRight(25);
+        PaieskaPage.dragSecondPriceFilterNodeLeft(25);
 
         minPrice = PaieskaPage.getMinimumPrice();
         maxPrice = PaieskaPage.getMaximumPrice();

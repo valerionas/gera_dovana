@@ -63,16 +63,6 @@ public class Common {
         return getElement(locator).getText();
     }
 
-    public static boolean waitElementPresent(By locator, int seconds) {
-        try {
-            WebDriverWait wait = new WebDriverWait(Driver.getChromeDriver(), Duration.ofSeconds(seconds));
-            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        } catch (TimeoutException e) {
-            return false;
-        }
-        return true;
-    }
-
     public static Map<String, ?> getElementAttributes(By locator) {
         JavascriptExecutor executor = (JavascriptExecutor) Driver.getChromeDriver();
         Object result = executor.executeScript(
@@ -90,6 +80,24 @@ public class Common {
             return newMap;
         }
         return new HashMap<>();
+    }
+
+    public static boolean waitElementPresent(By locator, int seconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getChromeDriver(), Duration.ofSeconds(seconds));
+            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        } catch (TimeoutException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void waitExplicit(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void hoverOverElement(By locator) {
@@ -127,5 +135,11 @@ public class Common {
 
     public static int countElements(By locator) {
         return getElements(locator).size();
+    }
+
+    public static void dragElementHorizontal(By locator, int offset) {
+        Actions action = new Actions(Driver.getChromeDriver());
+        WebElement element = getElement(locator);
+        action.clickAndHold(element).moveByOffset(offset, 0).release().perform();
     }
 }

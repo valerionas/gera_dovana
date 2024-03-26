@@ -15,8 +15,9 @@ public class HomePage {
     }
 
     public static void closePopUpWindow() {
-        Common.waitElementPresent(Locators.GeraDovana.Home.buttonCloseOmniSendForm, 10);
-        Common.clickOnElement(Locators.GeraDovana.Home.buttonCloseOmniSendForm);
+        if(Common.waitElementPresent(Locators.GeraDovana.Home.buttonCloseOmniSendForm, 5)){
+            Common.clickOnElement(Locators.GeraDovana.Home.buttonCloseOmniSendForm);
+        }
     }
 
     public static void clickPrisijungti() {
