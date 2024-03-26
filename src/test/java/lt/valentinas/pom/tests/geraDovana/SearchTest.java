@@ -66,7 +66,7 @@ public class SearchTest extends TestBase {
     public Object[][] dataProviderForPricesSearchService() {
         return new Object[][]{
                 {"jodinejimas"},
-                //{"skrydis"}
+                {"skrydis"}
         };
     }
 
@@ -102,5 +102,4 @@ public class SearchTest extends TestBase {
             );
         }
     }
-
 }
