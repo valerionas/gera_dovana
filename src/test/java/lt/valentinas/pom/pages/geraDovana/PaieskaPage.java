@@ -43,11 +43,11 @@ public class PaieskaPage {
 
     public static void dragFirstPriceFilterNodeRight(int offset) {
         Common.dragElementHorizontal(Locators.GeraDovana.Paieska.nodeOfPriceSelectorFirst,offset);
-        Common.waitExplicit(3);
+        Common.waitChange(Locators.GeraDovana.Paieska.paragraphsCardProductTitles,3);
     }
 
     public static void dragSecondPriceFilterNodeLeft(int offset) {
         Common.dragElementHorizontal(Locators.GeraDovana.Paieska.nodeOfPriceSelectorSecond,-offset);
-        Common.waitExplicit(3);
+        Common.waitChange(Locators.GeraDovana.Paieska.paragraphsCardProductTitles,3);
     }
 }

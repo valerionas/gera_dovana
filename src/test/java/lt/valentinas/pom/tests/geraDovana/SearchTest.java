@@ -24,7 +24,7 @@ public class SearchTest extends TestBase {
     public Object[][] dataProviderForTitleSearchService() {
         return new Object[][]{
                 {"jodinejimas", "jodinejim", "jojim", "zirg", "raitom"},
-                {"skrydis", "skrydis"}
+                {"skrydis", "skrydis", "skryd", "parasparn", "oro balion"}
         };
     }
 

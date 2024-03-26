@@ -2,10 +2,7 @@ package lt.valentinas.pom.pages;
 
 import lt.valentinas.pom.utils.Driver;
 import lt.valentinas.pom.utils.Utils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -141,5 +138,38 @@ public class Common {
         Actions action = new Actions(Driver.getChromeDriver());
         WebElement element = getElement(locator);
         action.clickAndHold(element).moveByOffset(offset, 0).release().perform();
+    }
+
+    public static boolean waitElementPresentCustomised(By locator, int seconds) {
+        for (int i = 0; i < seconds * 2; i++) {
+            try {
+                Thread.sleep(500);
+                getElement(locator);
+                return true;
+            } catch (NoSuchElementException e) {
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean waitChange(By locator, int seconds) {
+        List<WebElement> previousState = getElements(locator);
+
+        for (int i = 0; i < seconds * 2; i++) {
+            if (getElements(locator).equals(previousState)) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 }
