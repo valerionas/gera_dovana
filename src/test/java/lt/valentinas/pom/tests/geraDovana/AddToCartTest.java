@@ -2,7 +2,7 @@ package lt.valentinas.pom.tests.geraDovana;
 
 import lt.valentinas.pom.pages.Common;
 import lt.valentinas.pom.pages.geraDovana.HomePage;
-import lt.valentinas.pom.pages.geraDovana.PaieskaPage;
+import lt.valentinas.pom.pages.geraDovana.SearchPage;
 import lt.valentinas.pom.pages.geraDovana.ProductPage;
 import lt.valentinas.pom.pages.geraDovana.ShoppingCartPage;
 import lt.valentinas.pom.tests.TestBase;
@@ -33,10 +33,10 @@ public class AddToCartTest extends TestBase {
         HomePage.writeToSearchBar(input);
         HomePage.clickSearchIconButton();
 
-        PaieskaPage.clickOnFirstCard();
+        SearchPage.clickOnFirstCard();
         ProductPage.clickOnAddToCart();
         Common.goBack();
-        PaieskaPage.clickOnSecondCard();
+        SearchPage.clickOnSecondCard();
         ProductPage.clickOnAddToCart();
 
         ShoppingCartPage.addCountToFirstCartItem();

@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ShoppingCartPage {
     public static int countProductsAddedToCart() {
-        return Common.countElements(Locators.GeraDovana.ShoppingCart.textCartItems);
+        return Common.countElements(Locators.GeraDovana.ShoppingCart.divCartItems);
     }
 
     public static Double calculateActualTotalPrice() {
@@ -18,7 +18,7 @@ public class ShoppingCartPage {
         double sumPrices = 0.0;
 
         int firstItemQuantity = Integer.parseInt(Common.getElementAttributes(
-                Locators.GeraDovana.ShoppingCart.inputItemQuantityFirst).get("value").toString());
+                Locators.GeraDovana.ShoppingCart.inputItemQuantityFirstCartItem).get("value").toString());
 
         attributes = Common.getElementAttributes(Locators.GeraDovana.ShoppingCart.divFirstCartItem);
         sumPrices += Double.parseDouble(attributes.get("data-price").toString()) * firstItemQuantity;
@@ -34,7 +34,7 @@ public class ShoppingCartPage {
     }
 
     public static void addCountToFirstCartItem() {
-        Common.clickOnElement(Locators.GeraDovana.ShoppingCart.buttonIncreaseItemCountFirst);
-        Common.waitChange(Locators.GeraDovana.ShoppingCart.divFirstCartItem,3);
+        Common.clickOnElement(Locators.GeraDovana.ShoppingCart.buttonIncreaseItemCountFirstCartItem);
+        Common.waitChange(Locators.GeraDovana.ShoppingCart.divFirstCartItem, 3);
     }
 }

@@ -7,7 +7,7 @@ import lt.valentinas.pom.pages.Locators;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaieskaPage {
+public class SearchPage {
     public static List<CardProduct<String, Double>> getAllFilteredCardsInAPage() {
         List<CardProduct<String, Double>> cardProducts = new ArrayList<>();
 
@@ -42,12 +42,12 @@ public class PaieskaPage {
     }
 
     public static void dragFirstPriceFilterNodeRight(int offset) {
-        Common.dragElementHorizontal(Locators.GeraDovana.Paieska.nodeOfPriceSelectorFirst,offset);
-        Common.waitChange(Locators.GeraDovana.Paieska.paragraphsCardProductTitles,3);
+        Common.dragElementHorizontal(Locators.GeraDovana.Paieska.nodeOfPriceSelectorFirst, offset);
+        Common.waitChange(Locators.GeraDovana.Paieska.paragraphsCardProductTitles, 3);
     }
 
     public static void dragSecondPriceFilterNodeLeft(int offset) {
-        Common.dragElementHorizontal(Locators.GeraDovana.Paieska.nodeOfPriceSelectorSecond,-offset);
-        Common.waitChange(Locators.GeraDovana.Paieska.paragraphsCardProductTitles,3);
+        Common.dragElementHorizontal(Locators.GeraDovana.Paieska.nodeOfPriceSelectorSecond, -offset);
+        Common.waitChange(Locators.GeraDovana.Paieska.paragraphsCardProductTitles, 3);
     }
 }

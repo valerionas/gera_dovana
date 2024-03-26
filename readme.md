@@ -60,6 +60,9 @@
 
 ## Add to cart
 
+**Adding items to cart**  
+**testAddToCart()**
+
 1. Do a search for a product. *(Steps 1 to 4 from Search feature tests)*
 2. Select product
 3. Press "Idėti į krepšelį"

@@ -13,7 +13,6 @@ public class Utils {
         while (matcher.find()) {
             match = matcher.group();
         }
-
         return Double.parseDouble(match.replaceAll(",", "."));
     }
 

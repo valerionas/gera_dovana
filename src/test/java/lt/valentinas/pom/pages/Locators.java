@@ -6,10 +6,10 @@ public class Locators {
     public static class GeraDovana {
         public class Home {
             public static By buttonCookiesAcceptAll = By.xpath("//button[@class='cookies-accept-all']");
-            public static By hyperlinkPrisijungti = By.xpath("(//a[contains(text(),' Prisijungti')])[1]");
+            public static By linkPrisijungti = By.xpath("(//a[contains(text(),' Prisijungti')])[1]");
             public static By buttonCloseOmniSendForm = By.xpath(
                     "//div[contains(@id,'close-button') and contains(@class, 'close-button')]");
-            public static By dropdownListProfile = By.xpath(
+            public static By divDropdownProfile = By.xpath(
                     "//div[@class='dropdown dropdown--backdrop dropdown--profile']");
             public static By buttonHeaderProfile = By.xpath("//span[text() = 'Profilis']");
             public static By textBoxSearch = By.xpath("//input[@id='filterKeyword']");
@@ -44,18 +44,17 @@ public class Locators {
         }
 
         public class ShoppingCart {
-            public static By textCartItems = By.xpath(
+            public static By divCartItems = By.xpath(
                     "//div[@class='cart-items-block']//div[@class='heading']");
             public static By divFirstCartItem = By.xpath(
                     "(//div[@class='cart-item cart-item-active gift'])[1]");
             public static By divSecondCartItem = By.xpath(
                     "(//div[@class='cart-item cart-item-active gift'])[2]");
-
             public static By divTotalPrice = By.xpath(
                     "//div[@class='sum-total']/div[@class='total-price-1']");
-            public static By buttonIncreaseItemCountFirst = By.xpath(
+            public static By buttonIncreaseItemCountFirstCartItem = By.xpath(
                     "(//i[@class='icon icon-box-arrow-up'])[1]");
-            public static By inputItemQuantityFirst = By.xpath("(//input[@class='item-quantity'])[1]");
+            public static By inputItemQuantityFirstCartItem = By.xpath("(//input[@class='item-quantity'])[1]");
         }
     }
 }

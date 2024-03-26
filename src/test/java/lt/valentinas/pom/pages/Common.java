@@ -2,7 +2,10 @@ package lt.valentinas.pom.pages;
 
 import lt.valentinas.pom.utils.Driver;
 import lt.valentinas.pom.utils.Utils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,10 +17,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Common {
-    public static void setUpChrome() {
-        Driver.setUpChrome();
-    }
-
     public static void setUpChrome(int waitSeconds) {
         Driver.setUpChrome();
         Driver.getChromeDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(waitSeconds));
@@ -89,14 +88,6 @@ public class Common {
         return true;
     }
 
-    public static void waitExplicit(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000L);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public static void hoverOverElement(By locator) {
         Actions action = new Actions(Driver.getChromeDriver());
         action.moveToElement(getElement(locator)).perform();
@@ -138,22 +129,6 @@ public class Common {
         Actions action = new Actions(Driver.getChromeDriver());
         WebElement element = getElement(locator);
         action.clickAndHold(element).moveByOffset(offset, 0).release().perform();
-    }
-
-    public static boolean waitElementPresentCustomised(By locator, int seconds) {
-        for (int i = 0; i < seconds * 2; i++) {
-            try {
-                Thread.sleep(500);
-                getElement(locator);
-                return true;
-            } catch (NoSuchElementException e) {
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return false;
     }
 
     public static boolean waitChange(By locator, int seconds) {

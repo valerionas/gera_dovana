@@ -10,7 +10,6 @@ public class Driver {
 
     public static void setUpChrome() {
         WebDriverManager.chromedriver().setup();
-
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("start-maximized");

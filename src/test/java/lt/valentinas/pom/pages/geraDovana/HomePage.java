@@ -15,18 +15,18 @@ public class HomePage {
     }
 
     public static void closePopUpWindow() {
-        if(Common.waitElementPresent(Locators.GeraDovana.Home.buttonCloseOmniSendForm, 5)){
+        if (Common.waitElementPresent(Locators.GeraDovana.Home.buttonCloseOmniSendForm, 5)) {
             Common.clickOnElement(Locators.GeraDovana.Home.buttonCloseOmniSendForm);
         }
     }
 
     public static void clickPrisijungti() {
-        Common.clickOnElement(Locators.GeraDovana.Home.hyperlinkPrisijungti);
+        Common.clickOnElement(Locators.GeraDovana.Home.linkPrisijungti);
         Common.waitPageLoaded(7);
     }
 
     public static void hoverOverProfileDropdownMenu() {
-        Common.hoverOverElement(Locators.GeraDovana.Home.dropdownListProfile);
+        Common.hoverOverElement(Locators.GeraDovana.Home.divDropdownProfile);
     }
 
     public static boolean checkLoginStatus() {

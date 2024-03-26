@@ -2,7 +2,7 @@ package lt.valentinas.pom.tests.geraDovana;
 
 import lt.valentinas.pom.pages.CardProduct;
 import lt.valentinas.pom.pages.geraDovana.HomePage;
-import lt.valentinas.pom.pages.geraDovana.PaieskaPage;
+import lt.valentinas.pom.pages.geraDovana.SearchPage;
 import lt.valentinas.pom.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -40,7 +40,7 @@ public class SearchTest extends TestBase {
         HomePage.clickSearchIconButton();
 
         List<CardProduct<String, Double>> cardsOfProducts;
-        cardsOfProducts = PaieskaPage.getAllFilteredCardsInAPage();
+        cardsOfProducts = SearchPage.getAllFilteredCardsInAPage();
 
         String cardTitle;
 
@@ -72,20 +72,17 @@ public class SearchTest extends TestBase {
 
     @Test(dataProvider = "dataProviderPriceSearchService", threadPoolSize = 2)
     public void testPricesOfSearchService(String input) {
-        Double minPrice;
-        Double maxPrice;
-
         HomePage.writeToSearchBar(input);
         HomePage.clickSearchIconButton();
 
-        PaieskaPage.dragFirstPriceFilterNodeRight(25);
-        PaieskaPage.dragSecondPriceFilterNodeLeft(25);
+        SearchPage.dragFirstPriceFilterNodeRight(25);
+        SearchPage.dragSecondPriceFilterNodeLeft(25);
 
-        minPrice = PaieskaPage.getMinimumPrice();
-        maxPrice = PaieskaPage.getMaximumPrice();
+        Double minPrice = SearchPage.getMinimumPrice();
+        Double maxPrice = SearchPage.getMaximumPrice();
 
         List<CardProduct<String, Double>> cardsOfProducts;
-        cardsOfProducts = PaieskaPage.getAllFilteredCardsInAPage();
+        cardsOfProducts = SearchPage.getAllFilteredCardsInAPage();
 
         Double cardPrice;
 

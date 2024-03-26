@@ -9,7 +9,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTest extends TestBase {
-
     @BeforeMethod
     @Override
     public void setUp() {
@@ -70,6 +69,4 @@ public class LoginTest extends TestBase {
                 "\nExpected: %s,\nActual: %s\n".formatted(expectedResult, actualResult)
         );
     }
-
-
 }
