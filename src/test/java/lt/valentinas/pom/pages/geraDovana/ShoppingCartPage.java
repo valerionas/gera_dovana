@@ -6,10 +6,7 @@ import lt.valentinas.pom.utils.Utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ShoppingCartPage {
     public static int countProductsAddedToCart() {
@@ -18,10 +15,13 @@ public class ShoppingCartPage {
 
     public static Double calculateActualTotalPrice() {
         Map<String, ?> attributes;
-        Double sumPrices = 0.0;
+        double sumPrices = 0.0;
+
+        int firstItemQuantity = Integer.parseInt(Common.getElementAttributes(
+                Locators.GeraDovana.ShoppingCart.inputItemQuantityFirst).get("value").toString());
 
         attributes = Common.getElementAttributes(Locators.GeraDovana.ShoppingCart.divFirstCartItem);
-        sumPrices += Double.parseDouble(attributes.get("data-price").toString());
+        sumPrices += Double.parseDouble(attributes.get("data-price").toString()) * firstItemQuantity;
         attributes = Common.getElementAttributes(Locators.GeraDovana.ShoppingCart.divSecondCartItem);
         sumPrices += Double.parseDouble(attributes.get("data-price").toString());
 
@@ -31,5 +31,10 @@ public class ShoppingCartPage {
     public static Double readShownPrice() {
         String string = Common.getTextFromElement(Locators.GeraDovana.ShoppingCart.divTotalPrice);
         return Utils.parseNumberFromString(string);
+    }
+
+    public static void addCountToFirstCartItem() {
+        Common.clickOnElement(Locators.GeraDovana.ShoppingCart.buttonIncreaseItemCountFirst);
+        Common.waitChange(Locators.GeraDovana.ShoppingCart.divFirstCartItem,3);
     }
 }

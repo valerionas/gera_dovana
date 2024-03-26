@@ -38,6 +38,9 @@ public class AddToCartTest extends TestBase {
         PaieskaPage.clickOnSecondCard();
         ProductPage.clickOnAddToCart();
 
+        ShoppingCartPage.addCountToFirstCartItem();
+        ShoppingCartPage.addCountToFirstCartItem();
+
         int productCount = ShoppingCartPage.countProductsAddedToCart();
         Double productsPriceSum = ShoppingCartPage.calculateActualTotalPrice();
         Double shownPrice = ShoppingCartPage.readShownPrice();
@@ -47,5 +50,6 @@ public class AddToCartTest extends TestBase {
 
         Assert.assertEquals(productsPriceSum, shownPrice,
                 "Parodyta kaina (%s) nesutampa su paskaiciuota kaina (%s)".formatted(shownPrice, productsPriceSum));
+
     }
 }

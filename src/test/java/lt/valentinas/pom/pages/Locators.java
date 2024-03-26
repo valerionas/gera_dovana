@@ -53,6 +53,9 @@ public class Locators {
 
             public static By divTotalPrice = By.xpath(
                     "//div[@class='sum-total']/div[@class='total-price-1']");
+            public static By buttonIncreaseItemCountFirst = By.xpath(
+                    "(//i[@class='icon icon-box-arrow-up'])[1]");
+            public static By inputItemQuantityFirst = By.xpath("(//input[@class='item-quantity'])[1]");
         }
     }
 }
