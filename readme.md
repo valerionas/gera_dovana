@@ -1,4 +1,5 @@
 # Page "Gera Dovana" automated tests
+[Link to "Gera dovana"](https://www.geradovana.lt/)
 
 ## Test scenarios:
 
