@@ -5,14 +5,14 @@ import org.openqa.selenium.By;
 public class Locators {
     public static class GeraDovana {
         public class Home {
-            public static By buttonCookiesAcceptAll = By.xpath("//button[@class='cookies-accept-all']");
+            public static By buttonCookiesAcceptAll = By.xpath("//button[@class='button--submit cookies-policy__select-all-button']");
             public static By linkPrisijungti = By.xpath("(//a[contains(text(),' Prisijungti')])[1]");
             public static By buttonCloseOmniSendForm = By.xpath(
-                    "//div[contains(@id,'close-button') and contains(@class, 'close-button')]");
+                    "//div[contains(@id,'close-button') and contains(@class, 'close-button')]/button");
             public static By divDropdownProfile = By.xpath(
                     "//div[@class='dropdown dropdown--backdrop dropdown--profile']");
             public static By buttonHeaderProfile = By.xpath("//span[text() = 'Profilis']");
-            public static By textBoxSearch = By.xpath("//input[@id='filterKeyword']");
+            public static By textBoxSearch = By.xpath("(//input[@id='filterKeyword'])[1]");
             public static By buttonSearchIcon = By.xpath("(//button[@type='submit'])[1]");
         }
 
@@ -40,7 +40,7 @@ public class Locators {
         }
 
         public class Product {
-            public static By buttonAddToCart = By.xpath("(//a[@class='prodbuybtn '])[3]");
+            public static By buttonAddToCart = By.xpath("//button[@class='button--submit']");
         }
 
         public class ShoppingCart {

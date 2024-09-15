@@ -13,6 +13,6 @@ public abstract class TestBase {
 
     @AfterMethod
     public void tearDown() {
-        Common.quitChromeDriver();
+//        Common.quitChromeDriver();
     }
 }

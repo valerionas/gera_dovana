@@ -16,8 +16,8 @@ public class SearchTest extends TestBase {
     @Override
     public void setUp() {
         HomePage.open("https://www.geradovana.lt/");
-        HomePage.clickAcceptCookies();
         HomePage.closePopUpWindow();
+        HomePage.clickAcceptCookies();
     }
 
     @DataProvider(name = "dataProviderTitleSearchService", parallel = true)

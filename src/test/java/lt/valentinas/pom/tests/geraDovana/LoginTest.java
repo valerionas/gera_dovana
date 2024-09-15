@@ -13,8 +13,8 @@ public class LoginTest extends TestBase {
     @Override
     public void setUp() {
         HomePage.open("https://www.geradovana.lt/");
-        HomePage.clickAcceptCookies();
         HomePage.closePopUpWindow();
+        HomePage.clickAcceptCookies();
     }
 
     @DataProvider(name = "dataProviderLoginCorrectInput", parallel = true)

@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Driver {
     private static ThreadLocal<WebDriver> chromeDriver = new ThreadLocal<>();
 
@@ -14,6 +17,7 @@ public class Driver {
 
         options.addArguments("start-maximized");
         options.addArguments("--force-device-scale-factor=0.85");
+        options.addArguments("--disable-notifications");
 
         chromeDriver.set(new ChromeDriver(options));
     }

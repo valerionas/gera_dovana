@@ -5,7 +5,7 @@ import lt.valentinas.pom.pages.Locators;
 
 public class HomePage {
     public static void open(String url) {
-        Common.setUpChrome(7);
+        Common.setUpChrome(10);
         Common.openUrl(url);
     }
 
@@ -34,6 +34,7 @@ public class HomePage {
     }
 
     public static void writeToSearchBar(String input) {
+        Common.waitPageLoaded(10);
         Common.sendKeysToElement(Locators.GeraDovana.Home.textBoxSearch, input);
     }
 
